@@ -1,4 +1,10 @@
-import React, { useRef, useEffect, useContext, useCallback } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useContext,
+  useCallback,
+  useImperativeHandle,
+} from "react";
 import {
   Canvas,
   updateContextWithCanvas,
@@ -11,11 +17,15 @@ import "./index.css";
 import WorkbookContext from "../../context";
 import SheetOverlay from "../SheetOverlay";
 
+import { useUIapi } from "../../hooks/useUIapi";
+
 type Props = {
   sheet: SheetType;
+  refLayout: React.RefObject<ReturnType<typeof useUIapi>>;
 };
 
-const Sheet: React.FC<Props> = ({ sheet }) => {
+const Sheet: React.FC<Props> = ({ sheet, refLayout }) => {
+  const { showModal } = useUIapi();
   const { data } = sheet;
   // const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -266,6 +276,18 @@ const Sheet: React.FC<Props> = ({ sheet }) => {
       container?.removeEventListener("wheel", onWheel);
     };
   }, [onWheel]);
+
+  // expose APIs
+  useImperativeHandle(
+    refLayout,
+    () => {
+      const APIS = {
+        showModal,
+      };
+      return APIS;
+    },
+    [showModal]
+  );
 
   return (
     <div ref={containerRef} className="fortune-sheet-container">

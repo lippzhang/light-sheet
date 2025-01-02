@@ -51,10 +51,14 @@ import { generateAPIs } from "./api";
 import { ModalProvider } from "../../context/modal";
 import FilterMenu from "../ContextMenu/FilterMenu";
 import SheetList from "../SheetList";
+import { useUIapi } from "../../hooks/useUIapi";
 
 enablePatches();
 
-export type WorkbookInstance = ReturnType<typeof generateAPIs>;
+export type WorkbookInstance =
+  | ReturnType<typeof generateAPIs> & {
+      layout: ReturnType<typeof useUIapi> | null;
+    };
 
 type AdditionalProps = {
   onChange?: (data: SheetType[]) => void;
@@ -77,6 +81,7 @@ const concatProducer = (...producers: ((ctx: Context) => void)[]) => {
 
 const Workbook = React.forwardRef<WorkbookInstance, Settings & AdditionalProps>(
   ({ onChange, onOp, data: originalData, ...props }, ref) => {
+    const layoutRef = useRef<ReturnType<typeof useUIapi>>(null);
     const globalCache = useRef<GlobalCache>({ undoList: [], redoList: [] });
     const cellInput = useRef<HTMLDivElement>(null);
     const fxInput = useRef<HTMLDivElement>(null);
@@ -705,17 +710,23 @@ const Workbook = React.forwardRef<WorkbookInstance, Settings & AdditionalProps>(
     // expose APIs
     useImperativeHandle(
       ref,
-      () =>
-        generateAPIs(
-          context,
-          setContextWithProduce,
-          handleUndo,
-          handleRedo,
-          mergedSettings,
-          cellInput.current,
-          scrollbarX.current,
-          scrollbarY.current
-        ),
+      () => {
+        const APIS = {
+          ...generateAPIs(
+            context,
+            setContextWithProduce,
+            handleUndo,
+            handleRedo,
+            mergedSettings,
+            cellInput.current,
+            scrollbarX.current,
+            scrollbarY.current
+          ),
+          // TODO： add ui api
+          layout: layoutRef.current,
+        };
+        return APIS;
+      },
       [context, setContextWithProduce, handleUndo, handleRedo, mergedSettings]
     );
 
@@ -746,7 +757,7 @@ const Workbook = React.forwardRef<WorkbookInstance, Settings & AdditionalProps>(
               )}
               {mergedSettings.showFormulaBar && <FxEditor />}
             </div>
-            <Sheet sheet={sheet} />
+            <Sheet sheet={sheet} refLayout={layoutRef} />
             {mergedSettings.showSheetTabs && <SheetTab />}
             <ContextMenu />
             <FilterMenu />
