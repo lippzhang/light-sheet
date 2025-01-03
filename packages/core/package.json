@@ -7,6 +7,9 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "build": "father build"
+  },
   "repository": "https://github.com/lippzhang/fortune-sheet",
   "license": "MIT",
   "dependencies": {

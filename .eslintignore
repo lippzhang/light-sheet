@@ -3,6 +3,8 @@ dist
 /.vscode
 lib
 es
+esm
+cjs
 .github
 scripts
 webpack.config.js

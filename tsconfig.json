@@ -12,7 +12,7 @@
     "strict": true,
     "strictNullChecks": true,
     "skipLibCheck": true,
-    "lib": ["es5", "dom"],
+    "lib": ["dom", "es2017"],
     "baseUrl": "./",
     "paths": {
       "@light-sheet/core": ["packages/core/src"],

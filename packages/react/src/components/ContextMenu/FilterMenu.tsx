@@ -146,7 +146,7 @@ const DateSelectTree: React.FC<{
 
 const FilterMenu: React.FC = () => {
   const { context, setContext, settings, refs } = useContext(WorkbookContext);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const contextRef = useRef<Context>(context);
   const byColorMenuRef = useRef<HTMLDivElement>(null);
   const subMenuRef = useRef<HTMLDivElement>(null);

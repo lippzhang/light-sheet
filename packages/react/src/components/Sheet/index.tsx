@@ -21,7 +21,7 @@ import { useUIapi } from "../../hooks/useUIapi";
 
 type Props = {
   sheet: SheetType;
-  refLayout: React.RefObject<ReturnType<typeof useUIapi>>;
+  refLayout: React.RefObject<ReturnType<typeof useUIapi> | null>;
 };
 
 const Sheet: React.FC<Props> = ({ sheet, refLayout }) => {

@@ -135,6 +135,8 @@ dist
 /.idea
 **/**/lib/**
 **/**/es/**
+**/**/esm/**
+**/**/cjs/**
 
 # storybook
 /storybook-static

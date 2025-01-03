@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "pnpm storybook",
-    "build": "node ./scripts/build",
+    "build": "zx ./scripts/build.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "tsc": "tsc --noEmit",
@@ -48,7 +48,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.13",
     "express": "^4.17.3",
-    "father-build": "^1.21.2",
+    "father": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.3.1",
     "jest-canvas-mock": "^2.4.0",
@@ -61,7 +61,10 @@
     "storybook": "^7.3.2",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
     "ws": "^8.11.0",
-    "yorkie": "^2.0.0"
+    "yorkie": "^2.0.0",
+    "zx": "^8.3.0",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2"
   },
   "dependencies": {
     "react": ">= 18.2.0",
@@ -69,7 +72,7 @@
     "typescript": "^4.9.4"
   },
   "gitHooks": {
-    "pre-commit": "npx yarn lint"
+    "pre-commit": "pnpm run lint"
   },
   "resolutions": {
     "react": "^18.2.0",
