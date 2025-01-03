@@ -27,7 +27,7 @@ const ScrollBar: React.FC<Props> = ({ axis }) => {
               left: context.rowHeaderWidth,
               width: `calc(100% - ${context.rowHeaderWidth}px)`,
             }
-          : { height: "100%" }
+          : { height: "100%", right: context.rightPanelWidth }
       }
       className={`luckysheet-scrollbars luckysheet-scrollbar-ltr luckysheet-scrollbar-${axis}`}
       onScroll={() => {

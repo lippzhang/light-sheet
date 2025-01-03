@@ -30,6 +30,34 @@ const Template: StoryFn<typeof Workbook> = ({
       >
         showModal
       </button>
+      <button
+        type="button"
+        onClick={() => {
+          if (workbookRef && workbookRef.current) {
+            workbookRef.current.layout?.showRightPanel({
+              title: "title",
+              content: <>内容</>,
+              footer: <div>footer</div>,
+              width: 150,
+              onClose: () => {
+                console.log("close");
+              },
+            });
+          }
+        }}
+      >
+        showRightPanel
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          if (workbookRef && workbookRef.current) {
+            workbookRef.current.layout?.hideRightPanel();
+          }
+        }}
+      >
+        hideRightPanel
+      </button>
       <Workbook ref={workbookRef} {...args} data={data} onChange={onChange} />
     </div>
   );

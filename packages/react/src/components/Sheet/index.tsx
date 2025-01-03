@@ -25,7 +25,7 @@ type Props = {
 };
 
 const Sheet: React.FC<Props> = ({ sheet, refLayout }) => {
-  const { showModal } = useUIapi();
+  const UIAPIS = useUIapi();
   const { data } = sheet;
   // const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -63,12 +63,15 @@ const Sheet: React.FC<Props> = ({ sheet, refLayout }) => {
    */
   useEffect(() => {
     if (!data) return;
-    setContext((draftCtx) => updateContextWithSheetData(draftCtx, data));
+    setContext((draftCtx) => {
+      updateContextWithSheetData(draftCtx, data);
+    });
   }, [
     context.config?.rowlen,
     context.config?.columnlen,
     context.config?.rowhidden,
     context.config.colhidden,
+    context.rightPanelVisible,
     data,
     context.zoomRatio,
     setContext,
@@ -281,12 +284,9 @@ const Sheet: React.FC<Props> = ({ sheet, refLayout }) => {
   useImperativeHandle(
     refLayout,
     () => {
-      const APIS = {
-        showModal,
-      };
-      return APIS;
+      return UIAPIS;
     },
-    [showModal]
+    [UIAPIS]
   );
 
   return (

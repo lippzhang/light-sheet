@@ -34,6 +34,7 @@ import {
 } from "@fortune-sheet/core";
 import _ from "lodash";
 import WorkbookContext, { SetContextOptions } from "../../context";
+import { RightPanelContext } from "../../context/rightPanel";
 import ColumnHeader from "./ColumnHeader";
 import RowHeader from "./RowHeader";
 import InputBox from "./InputBox";
@@ -48,9 +49,11 @@ import RangeDialog from "../DataVerification/RangeDialog";
 import { useDialog } from "../../hooks/useDialog";
 import SVGIcon from "../SVGIcon";
 import DropDownList from "../DataVerification/DropdownList";
+import RightPanel from "./RightPanel";
 
 const SheetOverlay: React.FC = () => {
   const { context, setContext, settings, refs } = useContext(WorkbookContext);
+  const { value: rightPanelValue } = useContext(RightPanelContext);
   const { info, rightclick } = locale(context);
   const { showDialog } = useDialog();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -429,6 +432,12 @@ const SheetOverlay: React.FC = () => {
         <RowHeader />
         <ScrollBar axis="x" />
         <ScrollBar axis="y" />
+        {context.rightPanelVisible && (
+          <RightPanel
+            {...rightPanelValue}
+            width={context.rightPanelWidth || 130}
+          />
+        )}
         <div
           ref={refs.cellArea}
           className="fortune-cell-area"

@@ -49,6 +49,7 @@ import SheetTabContextMenu from "../ContextMenu/SheetTab";
 import MoreItemsContaier from "../Toolbar/MoreItemsContainer";
 import { generateAPIs } from "./api";
 import { ModalProvider } from "../../context/modal";
+import { RightPanelProvider } from "../../context/rightPanel";
 import FilterMenu from "../ContextMenu/FilterMenu";
 import SheetList from "../SheetList";
 import { useUIapi } from "../../hooks/useUIapi";
@@ -741,82 +742,84 @@ const Workbook = React.forwardRef<WorkbookInstance, Settings & AdditionalProps>(
 
     return (
       <WorkbookContext.Provider value={providerValue}>
-        <ModalProvider>
-          <div
-            className="fortune-container"
-            ref={workbookContainer}
-            onKeyDown={onKeyDown}
-          >
-            <SVGDefines currency={mergedSettings.currency} />
-            <div className="fortune-workarea">
-              {mergedSettings.showToolbar && (
-                <Toolbar
-                  moreItemsOpen={moreToolbarItems !== null}
-                  setMoreItems={setMoreToolbarItems}
+        <RightPanelProvider>
+          <ModalProvider>
+            <div
+              className="fortune-container"
+              ref={workbookContainer}
+              onKeyDown={onKeyDown}
+            >
+              <SVGDefines currency={mergedSettings.currency} />
+              <div className="fortune-workarea">
+                {mergedSettings.showToolbar && (
+                  <Toolbar
+                    moreItemsOpen={moreToolbarItems !== null}
+                    setMoreItems={setMoreToolbarItems}
+                  />
+                )}
+                {mergedSettings.showFormulaBar && <FxEditor />}
+              </div>
+              <Sheet sheet={sheet} refLayout={layoutRef} />
+              {mergedSettings.showSheetTabs && <SheetTab />}
+              <ContextMenu />
+              <FilterMenu />
+              <SheetTabContextMenu />
+              {context.showSheetList && <SheetList />}
+              {moreToolbarItems && (
+                <MoreItemsContaier onClose={onMoreToolbarItemsClose}>
+                  {moreToolbarItems}
+                </MoreItemsContaier>
+              )}
+              {!_.isEmpty(context.contextMenu) && (
+                <div
+                  onMouseDown={() => {
+                    setContextWithProduce((draftCtx) => {
+                      draftCtx.contextMenu = {};
+                      draftCtx.filterContextMenu = undefined;
+                      draftCtx.showSheetList = undefined;
+                    });
+                  }}
+                  onMouseMove={(e) => e.stopPropagation()}
+                  onMouseUp={(e) => e.stopPropagation()}
+                  onContextMenu={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }}
+                  className="fortune-popover-backdrop"
                 />
               )}
-              {mergedSettings.showFormulaBar && <FxEditor />}
-            </div>
-            <Sheet sheet={sheet} refLayout={layoutRef} />
-            {mergedSettings.showSheetTabs && <SheetTab />}
-            <ContextMenu />
-            <FilterMenu />
-            <SheetTabContextMenu />
-            {context.showSheetList && <SheetList />}
-            {moreToolbarItems && (
-              <MoreItemsContaier onClose={onMoreToolbarItemsClose}>
-                {moreToolbarItems}
-              </MoreItemsContaier>
-            )}
-            {!_.isEmpty(context.contextMenu) && (
-              <div
-                onMouseDown={() => {
-                  setContextWithProduce((draftCtx) => {
-                    draftCtx.contextMenu = {};
-                    draftCtx.filterContextMenu = undefined;
-                    draftCtx.showSheetList = undefined;
-                  });
-                }}
-                onMouseMove={(e) => e.stopPropagation()}
-                onMouseUp={(e) => e.stopPropagation()}
-                onContextMenu={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                }}
-                className="fortune-popover-backdrop"
-              />
-            )}
-            <div className="fortune-stat-area">
-              <div className="luckysheet-sheet-selection-calInfo">
-                {!!calInfo.count && (
-                  <div style={{ width: "60px" }}>
-                    {formula.count}: {calInfo.count}
-                  </div>
-                )}
-                {!!calInfo.numberC && !!calInfo.sum && (
-                  <div>
-                    {formula.sum}: {calInfo.sum}
-                  </div>
-                )}
-                {!!calInfo.numberC && !!calInfo.average && (
-                  <div>
-                    {formula.average}: {calInfo.average}
-                  </div>
-                )}
-                {!!calInfo.numberC && !!calInfo.max && (
-                  <div>
-                    {formula.max}: {calInfo.max}
-                  </div>
-                )}
-                {!!calInfo.numberC && !!calInfo.min && (
-                  <div>
-                    {formula.min}: {calInfo.min}
-                  </div>
-                )}
+              <div className="fortune-stat-area">
+                <div className="luckysheet-sheet-selection-calInfo">
+                  {!!calInfo.count && (
+                    <div style={{ width: "60px" }}>
+                      {formula.count}: {calInfo.count}
+                    </div>
+                  )}
+                  {!!calInfo.numberC && !!calInfo.sum && (
+                    <div>
+                      {formula.sum}: {calInfo.sum}
+                    </div>
+                  )}
+                  {!!calInfo.numberC && !!calInfo.average && (
+                    <div>
+                      {formula.average}: {calInfo.average}
+                    </div>
+                  )}
+                  {!!calInfo.numberC && !!calInfo.max && (
+                    <div>
+                      {formula.max}: {calInfo.max}
+                    </div>
+                  )}
+                  {!!calInfo.numberC && !!calInfo.min && (
+                    <div>
+                      {formula.min}: {calInfo.min}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        </ModalProvider>
+          </ModalProvider>
+        </RightPanelProvider>
       </WorkbookContext.Provider>
     );
   }

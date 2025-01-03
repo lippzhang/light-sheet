@@ -1,0 +1,26 @@
+.fortune-sheet-sidebar {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1003;
+  right: 0px;
+  top: 0px;
+  overflow-y: scroll;
+  background-color: white;
+}
+.fortune-sheet-sidebar-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 36px;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.25rm;
+}
+.fortune-sheet-sidebar-content {
+  /* height: calc(100vh - 36px); */
+  margin-top: 8px;
+  flex: 1;
+  overflow-y: auto;
+}

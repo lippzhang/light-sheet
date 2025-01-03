@@ -218,6 +218,9 @@ export type Context = {
   forceFormulaRef?: Boolean;
 
   getRefs: () => RefValues;
+  // 右侧paenl的设置
+  rightPanelWidth: number;
+  rightPanelVisible: boolean;
 };
 
 export function defaultContext(refs: RefValues): Context {
@@ -488,6 +491,8 @@ export function defaultContext(refs: RefValues): Context {
     hooks: {},
 
     getRefs: () => refs,
+    rightPanelWidth: 0,
+    rightPanelVisible: false,
   };
 }
 
@@ -585,6 +590,7 @@ function calcRowColSize(ctx: Context, rowCount: number, colCount: number) {
   }
 
   ctx.ch_width += maxColumnlen;
+  ctx.ch_width += ctx.rightPanelWidth;
 }
 
 export function ensureSheetIndex(data: Sheet[], generateSheetId: () => string) {
