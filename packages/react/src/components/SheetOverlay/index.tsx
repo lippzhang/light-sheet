@@ -31,7 +31,7 @@ import {
   fixRowStyleOverflowInFreeze,
   fixColumnStyleOverflowInFreeze,
   handleKeydownForZoom,
-} from "@fortune-sheet/core";
+} from "@light-sheet/core";
 import _ from "lodash";
 import WorkbookContext, { SetContextOptions } from "../../context";
 import { RightPanelContext } from "../../context/rightPanel";

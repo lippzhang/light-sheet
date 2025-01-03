@@ -12,7 +12,7 @@ import {
   handleGlobalWheel,
   initFreeze,
   Sheet as SheetType,
-} from "@fortune-sheet/core";
+} from "@light-sheet/core";
 import "./index.css";
 import WorkbookContext from "../../context";
 import SheetOverlay from "../SheetOverlay";

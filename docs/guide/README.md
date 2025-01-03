@@ -86,11 +86,11 @@ This project is originated from [Luckysheet](https://github.com/mengshukeji/Luck
 
 ### Download and install the library
 ```shell
-yarn add @fortune-sheet/react
+yarn add @light-sheet/react
 ```
 or using npm:
 ```shell
-npm install @fortune-sheet/react
+npm install @light-sheet/react
 ```
 
 ### Create an HTML placeholder
@@ -111,8 +111,8 @@ npm install @fortune-sheet/react
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Workbook } from "@fortune-sheet/react";
-import "@fortune-sheet/react/dist/index.css"
+import { Workbook } from "@light-sheet/react";
+import "@light-sheet/react/dist/index.css"
 
 ReactDOM.render(
   <Workbook data={[{ name: "Sheet1" }]} />,

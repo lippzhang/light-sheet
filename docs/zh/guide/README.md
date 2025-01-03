@@ -86,11 +86,11 @@ FortuneSheet是一款开箱即用的类似Excel和Google Sheets的javascript表�
 
 ### 安装库
 ```shell
-yarn add @fortune-sheet/react
+yarn add @light-sheet/react
 ```
 或使用 npm:
 ```shell
-npm install @fortune-sheet/react
+npm install @light-sheet/react
 ```
 
 ### 创建一个HTML容器
@@ -111,8 +111,8 @@ npm install @fortune-sheet/react
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Workbook } from "@fortune-sheet/react";
-import "@fortune-sheet/react/dist/index.css"
+import { Workbook } from "@light-sheet/react";
+import "@light-sheet/react/dist/index.css"
 
 ReactDOM.render(
   <Workbook data={[{ name: "Sheet1" }]} />,

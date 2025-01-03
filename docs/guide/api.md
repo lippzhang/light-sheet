@@ -434,7 +434,7 @@ Like `setCellFormat`, but set multiple cell formats in one shot.
 Example:
 
 ```tsx
-import { Workbook, WorkbookInstance } from "@fortune-sheet/react";
+import { Workbook, WorkbookInstance } from "@light-sheet/react";
 
 const ExampleComponent = () => {
   const ref = useRef < WorkbookInstance > null;

@@ -1,5 +1,5 @@
 {
-  "name": "@fortune-sheet/react",
+  "name": "@light-sheet/react",
   "version": "0.21.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -13,10 +13,12 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@fortune-sheet/core": "^0.21.0",
+    "@light-sheet/core": "workspace:*",
     "@types/regenerator-runtime": "^0.13.6",
     "immer": "^9.0.12",
     "lodash": "^4.17.21",
+    "react": ">= 18.2.0",
+    "react-dom": "^18.2.0",
     "regenerator-runtime": "^0.14.1"
   },
   "peerDependencies": {
@@ -38,5 +40,10 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.179",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2"
   }
 }

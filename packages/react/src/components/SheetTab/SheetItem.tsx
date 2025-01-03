@@ -3,7 +3,7 @@ import {
   editSheetName,
   cancelNormalSelected,
   cancelActiveImgItem,
-} from "@fortune-sheet/core";
+} from "@light-sheet/core";
 import _ from "lodash";
 import React, {
   useContext,

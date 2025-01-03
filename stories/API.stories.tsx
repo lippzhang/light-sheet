@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import { Workbook, WorkbookInstance } from "@fortune-sheet/react";
-import { Sheet } from "@fortune-sheet/core";
+import { Workbook, WorkbookInstance } from "@light-sheet/react";
+import { Sheet } from "@light-sheet/core";
 
 export default {
   component: Workbook,

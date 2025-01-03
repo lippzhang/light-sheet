@@ -8,7 +8,7 @@ import {
   locale,
   setCellValue,
   confirmMessage,
-} from "@fortune-sheet/core";
+} from "@light-sheet/core";
 import React, { useCallback, useContext, useEffect, useState } from "react";
 import WorkbookContext from "../../context";
 import { useDialog } from "../../hooks/useDialog";
