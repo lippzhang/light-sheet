@@ -30,7 +30,7 @@
     "@storybook/react": "^7.3.2",
     "@storybook/react-webpack5": "^7.3.2",
     "@storybook/testing-library": "^0.2.0",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^15.0.5",
     "@types/jest": "^29.2.5",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
