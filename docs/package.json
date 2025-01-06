@@ -1,4 +1,5 @@
 {
+  "name": "vuepress-docs",
   "scripts": {
     "dev": "vuepress dev .",
     "build": "cross-env NODE_ENV=production vuepress build ."
