@@ -15,6 +15,10 @@ export default defineConfig({
   // },
   umd: {
     name: 'Workbook',
-    output: 'dist',
+    output: {
+      filename: 'index',
+      path: 'dist'
+    }
+    
   },
 });
