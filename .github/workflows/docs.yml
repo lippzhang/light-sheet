@@ -16,17 +16,17 @@ jobs:
         with:
           # fetch all commits to get last updated time or other git log info
           fetch-depth: 0
-
-      - name: Setup pnpm
+      - uses: actions/checkout@v4
+      - name: 安装 pnpm
         uses: pnpm/action-setup@v4
-
-      - name: Setup Node.js
+        with:
+          version: 9
+      - name: 使用 Nnode.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          # choose node.js version to use
-          node-version: 20
-          # cache deps for pnpm
-          cache: pnpm
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
+          cache: 'pnpm'
 
       - name: Install deps
         run: pnpm install --frozen-lockfile
