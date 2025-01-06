@@ -1,9 +1,15 @@
 name: Release
 
+# on:
+#   release:
+#     types: [published]
 on:
-  release:
-    types: [published]
-
+  push:
+    branches:
+      - master
+env:
+  CI: true
+  PNPM_CACHE_FOLDER: .pnpm-store
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -24,22 +30,18 @@ jobs:
       - run: pnpm run lint
       - run: pnpm run test
       - run: pnpm run build
-      - run: cd packages/core && pnpm pack
-      - run: cd packages/react && pnpm pack
-      - run: cd packages/formula-parser && pnpm pack
-      - uses: actions/upload-artifact@v4
+      - name: Setup npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+      - name: setup pnpm config
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+      - name: install dependencies
+        run: pnpm install
+      - name: create and publish versions
+        uses: changesets/action@v1
         with:
-          name: packages
-          path: |
-            packages/core/fortune-sheet-core-*.tgz
-            packages/react/fortune-sheet-react-*.tgz
-            packages/formula-parser/fortune-sheet-formula-parser-*.tgz
-      - run: cd packages/core && pnpm publish
+          version: pnpm ci:version
+          commit: "chore: update versions"
+          title: "chore: update versions"
+          publish: pnpm ci:publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: cd packages/react && pnpm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: cd packages/formula-parser && pnpm publish || true
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

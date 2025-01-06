@@ -14,7 +14,7 @@
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx,.json ./packages",
     "preinstall": "npx -y only-allow pnpm",
     "postinstall": "pnpm --filter @light-sheet/formula-parser run build",
-    "publish": "pnpm publish packages/core --registry 'https://registry.npmjs.org' && npm publish packages/react --registry 'https://registry.npmjs.org'",
+    "ci:publish": "pnpm publish -r",
     "test": "jest",
     "coverage": "jest --coverage"
   },
