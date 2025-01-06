@@ -24,9 +24,9 @@ jobs:
       - run: pnpm run lint
       - run: pnpm run test
       - run: pnpm run build
-      - run: cd packages/core && npm pack
-      - run: cd packages/react && npm pack
-      - run: cd packages/formula-parser && npm pack
+      - run: cd packages/core && pnpm pack
+      - run: cd packages/react && pnpm pack
+      - run: cd packages/formula-parser && pnpm pack
       - uses: actions/upload-artifact@v4
         with:
           name: packages
@@ -34,12 +34,12 @@ jobs:
             packages/core/fortune-sheet-core-*.tgz
             packages/react/fortune-sheet-react-*.tgz
             packages/formula-parser/fortune-sheet-formula-parser-*.tgz
-      - run: cd packages/core && npm publish
+      - run: cd packages/core && pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: cd packages/react && npm publish
+      - run: cd packages/react && pnpm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: cd packages/formula-parser && npm publish || true
+      - run: cd packages/formula-parser && pnpm publish || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
