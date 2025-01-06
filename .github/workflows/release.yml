@@ -13,12 +13,12 @@ jobs:
         with:
           node-version: "20.x"
           registry-url: "https://registry.npmjs.org"
-          cache: "yarn"
-      - run: yarn install --frozen-lockfile
-      - run: yarn tsc
-      - run: yarn lint
-      - run: yarn test
-      - run: yarn build
+          cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run tsc
+      - run: pnpm run lint
+      - run: pnpm run test
+      - run: pnpm run build
       - run: cd packages/core && npm pack
       - run: cd packages/react && npm pack
       - run: cd packages/formula-parser && npm pack
