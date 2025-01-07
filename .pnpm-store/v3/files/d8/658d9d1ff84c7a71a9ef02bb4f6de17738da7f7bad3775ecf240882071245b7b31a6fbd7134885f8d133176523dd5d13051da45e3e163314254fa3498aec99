@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+export declare function printUsage(): void;
+export declare const argv: import("minimist").ParsedArgs;
+export declare function main(): Promise<void>;
+export declare function runScript(script: string, ext?: string): Promise<void>;
+export declare function scriptFromStdin(ext?: string): Promise<boolean>;
+export declare function scriptFromHttp(remote: string, _ext?: string): Promise<void>;
+export declare function writeAndImport(script: string | Buffer, filepath: string, origin?: string): Promise<void>;
+export declare function importPath(filepath: string, origin?: string): Promise<void>;
+export declare function injectGlobalRequire(origin: string): void;
+export declare function transformMarkdown(buf: Buffer): string;
+export declare function isMain(metaurl?: string, scriptpath?: string): boolean;
+export declare function normalizeExt(ext?: string): string | undefined;
