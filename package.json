@@ -9,7 +9,7 @@
     "build": "zx ./scripts/build.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "docs:build": "zx ./scripts/build.mjs",
+    "docs:build": "zx ./scripts/build-docs.mjs",
     "tsc": "tsc --noEmit",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx,.json ./packages",
     "preinstall": "npx -y only-allow pnpm",
