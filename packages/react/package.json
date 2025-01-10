@@ -1,6 +1,6 @@
 {
   "name": "@light-sheet/react",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "types": "esm/index.d.ts",
   "module": "esm/index.js",
