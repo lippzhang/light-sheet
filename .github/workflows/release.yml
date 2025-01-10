@@ -1,12 +1,8 @@
 name: Release
 
-# on:
-#   release:
-#     types: [published]
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 env:
   CI: true
   PNPM_CACHE_FOLDER: .pnpm-store
