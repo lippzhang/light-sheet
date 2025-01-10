@@ -1,5 +1,13 @@
 # @light-sheet/react
 
+## 1.1.1
+
+### Patch Changes
+
+- 3d199e9: patch 测试
+- Updated dependencies [3d199e9]
+  - @light-sheet/core@1.0.1
+
 ## 1.1.0
 
 ### Minor Changes
