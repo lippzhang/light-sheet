@@ -1,5 +1,13 @@
 # @light-sheet/core
 
+## 1.0.1
+
+### Patch Changes
+
+- 3d199e9: patch 测试
+- Updated dependencies [3d199e9]
+  - @light-sheet/formula-parser@1.0.1
+
 ## 1.0.0
 
 ### Major Changes
