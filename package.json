@@ -9,7 +9,7 @@
     "build": "zx ./scripts/build.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "docs:build": "pnpm --filter vuepress-docs run build",
+    "docs:build": "zx ./scripts/build.mjs",
     "tsc": "tsc --noEmit",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx,.json ./packages",
     "preinstall": "npx -y only-allow pnpm",
