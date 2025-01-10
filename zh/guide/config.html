@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>整体配置 | FortuneSheet文档</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="FortuneSheet是一款开箱即用的类似Excel和Google Sheets的javascript表格组件。本站包含官方配置文档，API，教程。">
+    
+    <link rel="preload" href="/fortune-sheet-docs/assets/css/0.styles.456c1cbe.css" as="style"><link rel="preload" href="/fortune-sheet-docs/assets/js/app.74366edf.js" as="script"><link rel="preload" href="/fortune-sheet-docs/assets/js/2.173094f5.js" as="script"><link rel="preload" href="/fortune-sheet-docs/assets/js/1.c7831255.js" as="script"><link rel="preload" href="/fortune-sheet-docs/assets/js/36.be05224a.js" as="script"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/10.adac80ad.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/11.50d1fb22.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/12.cfcc6a1e.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/13.ccc02464.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/14.246cba84.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/15.55c9208d.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/16.35505d11.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/17.69ad532e.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/18.276e717c.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/19.bd5d586d.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/20.b0483b69.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/21.2750f0b2.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/22.62708e6b.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/23.9d8a6635.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/24.c5579021.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/25.88235f3c.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/26.a81b0b95.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/27.053f8621.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/28.a8437aaa.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/29.cfc5abbb.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/3.78bda124.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/30.5cad59e9.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/31.cc004cee.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/32.f16bb494.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/33.f86b1afc.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/34.2f924603.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/35.545a11e2.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/37.c20f816f.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/38.a3864a0f.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/39.68fee743.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/4.3e8182d7.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/5.f7a1187b.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/6.30ae4223.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/7.5c569193.js"><link rel="prefetch" href="/fortune-sheet-docs/assets/js/vendors~docsearch.663d6e13.js">
+    <link rel="stylesheet" href="/fortune-sheet-docs/assets/css/0.styles.456c1cbe.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/fortune-sheet-docs/zh/" class="home-link router-link-active"><!----> <span class="site-name">FortuneSheet文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/fortune-sheet-docs/zh/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/fortune-sheet-docs/zh/guide/" class="nav-link router-link-active">
+  指南
+</a></div><div class="nav-item"><a href="https://ruilisi.github.io/fortune-sheet-demo/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  演示
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="选择语言" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="选择语言" class="mobile-dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fortune-sheet-docs/guide/config.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/fortune-sheet-docs/zh/guide/config.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/ruilisi/fortune-sheet" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/fortune-sheet-docs/zh/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/fortune-sheet-docs/zh/guide/" class="nav-link router-link-active">
+  指南
+</a></div><div class="nav-item"><a href="https://ruilisi.github.io/fortune-sheet-demo/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  演示
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="选择语言" class="dropdown-title"><span class="title">选择语言</span> <span class="arrow down"></span></button> <button type="button" aria-label="选择语言" class="mobile-dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/fortune-sheet-docs/guide/config.html" class="nav-link">
+  English
+</a></li><li class="dropdown-item"><!----> <a href="/fortune-sheet-docs/zh/guide/config.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li></ul></div></div> <a href="https://github.com/ruilisi/fortune-sheet" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/fortune-sheet-docs/zh/guide/" aria-current="page" class="sidebar-link">快速上手</a></li><li><a href="/fortune-sheet-docs/zh/guide/config.html" aria-current="page" class="active sidebar-link">整体配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/fortune-sheet-docs/zh/guide/config.html#基础结构" class="sidebar-link">基础结构</a></li><li class="sidebar-sub-header"><a href="/fortune-sheet-docs/zh/guide/config.html#配置项" class="sidebar-link">配置项</a></li></ul></li><li><a href="/fortune-sheet-docs/zh/guide/sheet.html" class="sidebar-link">工作表配置</a></li><li><a href="/fortune-sheet-docs/zh/guide/cell.html" class="sidebar-link">单元格</a></li><li><a href="/fortune-sheet-docs/zh/guide/op.html" class="sidebar-link">操作</a></li><li><a href="/fortune-sheet-docs/zh/guide/api.html" class="sidebar-link">API</a></li><li><a href="/fortune-sheet-docs/zh/guide/FAQ.html" class="sidebar-link">常见问题</a></li><li><a href="/fortune-sheet-docs/zh/guide/contribute.html" class="sidebar-link">贡献指南</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="整体配置"><a href="#整体配置" class="header-anchor">#</a> 整体配置</h1> <h2 id="基础结构"><a href="#基础结构" class="header-anchor">#</a> 基础结构</h2> <p>如下是一个简洁的配置案例：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 配置项</span>
+<span class="token keyword">const</span> settings <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Sheet1'</span><span class="token punctuation">,</span> <span class="token literal-property property">celldata</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> <span class="token literal-property property">r</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">c</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">v</span><span class="token operator">:</span> <span class="token keyword">null</span> <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment">// 表格数据</span>
+    <span class="token function-variable function">onChange</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">// onChange 事件</span>
+    <span class="token literal-property property">lang</span><span class="token operator">:</span> <span class="token string">'zh'</span> <span class="token comment">// 设定表格语言</span>
+    <span class="token comment">// 更多其他设置...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 渲染工作表</span>
+<span class="token operator">&lt;</span>Workbook <span class="token punctuation">{</span><span class="token operator">...</span>settings<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+</code></pre></div><p><code>Workbook</code>的配置项会作用于整个表格，单个sheet的配置则需要在<code>settings.data</code>数组中，分别设置对应更详细的参数，参考<a href="/fortune-sheet-docs/zh/guide/sheet.html">工作表配置</a></p> <p>针对个性化的需求，除了允许配置工具栏（<a href="#showtoolbar">showToolbar</a>）、公示栏（<a href="#showformulabar">showFormulaBar</a>）、底部sheet页（<a href="#showsheettabs">showSheetTabs</a>）之外，
+FortuneSheet开放了更细致的自定义配置选项，分别有</p> <ul><li>自定义工具栏（<a href="#toolbaritems">toolbarItems</a>）</li> <li>自定义单元格右键菜单（<a href="#cellcontextmenu">cellContextMenu</a>）</li> <li>自定义底部sheet页右击菜单（<a href="#sheettabcontextmenu">sheetTabContextMenu</a>）</li></ul> <h2 id="配置项"><a href="#配置项" class="header-anchor">#</a> 配置项</h2> <p>以下为所有支持的设置参数</p> <ul><li>语言 <a href="#lang">lang</a></li> <li>工作表配置 <a href="#data">data</a></li> <li>工作表onChange事件 <a href="#onchange">onChange</a></li> <li>列数 <a href="#column">column</a></li> <li>行数 <a href="#row">row</a></li> <li>工具栏 <a href="#showtoolbar">showToolbar</a></li> <li>自定义工具栏<a href="#toolbaritems">toolbarItems</a></li> <li>底部sheet页 <a href="#showsheettabs">showSheetTabs</a></li> <li>比例 <a href="#devicepixelratio">devicePixelRatio</a></li> <li>自定义单元格右键菜单 <a href="#cellcontextmenu">cellContextMenu</a></li> <li>自定义sheet页右击菜单 <a href="#sheettabcontextmenu">sheetTabContextMenu</a></li> <li>行标题区域的宽度 <a href="#rowheaderwidth">rowHeaderWidth</a></li> <li>列标题区域的高度 <a href="#columnheaderheight">columnHeaderHeight</a></li> <li>是否显示公式栏 <a href="#showformulabar">showFormulaBar</a></li> <li>初始化默认字体大小 <a href="#defaultfontsize">defaultFontSize</a></li></ul> <h3 id="lang"><a href="#lang" class="header-anchor">#</a> lang</h3> <ul><li>类型：String</li> <li>默认值：&quot;zh&quot;</li> <li>作用：国际化设置，允许设置表格的语言，支持简体中文(&quot;zh&quot;)、英文(&quot;en&quot;)、繁体中文(&quot;zh_tw&quot;)和西班牙文(&quot;es&quot;)</li></ul> <hr> <h3 id="data"><a href="#data" class="header-anchor">#</a> data</h3> <ul><li>类型：Array</li> <li>默认值：undefined</li> <li>作用：详细参数设置参见<a href="/fortune-sheet-docs/zh/guide/sheet.html">工作表配置</a></li></ul> <hr> <h3 id="onchange"><a href="#onchange" class="header-anchor">#</a> onChange</h3> <ul><li>类型: Function</li> <li>默认值: undefined</li> <li>当<code>data</code>改变时触发</li></ul> <hr> <h3 id="column"><a href="#column" class="header-anchor">#</a> column</h3> <ul><li>类型：Number</li> <li>默认值：60</li> <li>作用：空表格默认的列数量</li></ul> <hr> <h3 id="row"><a href="#row" class="header-anchor">#</a> row</h3> <ul><li>类型：Number</li> <li>默认值：84</li> <li>作用：空表格默认的行数据量</li></ul> <hr> <h3 id="showtoolbar"><a href="#showtoolbar" class="header-anchor">#</a> showToolbar</h3> <ul><li>类型：Boolean</li> <li>默认值：true</li> <li>作用：是否显示工具栏</li></ul> <hr> <h3 id="toolbaritems"><a href="#toolbaritems" class="header-anchor">#</a> toolbarItems</h3> <ul><li>类型：Array</li> <li>默认值：[]</li> <li>作用：自定义配置工具栏，可以与showtoolbar配合使用，<code>toolbarItems</code>拥有更高的优先级。</li> <li>格式：
+对象格式可以很方便控制显示隐藏，使用数组形式可轻松控制按钮顺序和位置， 以下为工具栏按钮和分隔符的默认配置。<div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">[</span>
+	<span class="token string">&quot;undo&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;redo&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;format-painter&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;clear-format&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;|&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;currency-format&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;percentage-format&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;number-decrease&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;number-increase&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;format&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;|&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;font&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;|&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;font-size&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;|&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;bold&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;italic&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;strike-through&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;underline&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;|&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;font-color&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;background&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;border&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;merge-cell&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;|&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;horizontal-align&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;vertical-align&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;text-wrap&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;text-rotation&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;|&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;freeze&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;conditionFormat&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;filter&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;link&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;image&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;comment&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;quick-formula&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;dataVerification&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;splitColumn&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;locationCondition&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;screenshot&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;search&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre></div></li></ul> <hr> <h3 id="showsheettabs"><a href="#showsheettabs" class="header-anchor">#</a> showSheetTabs</h3> <ul><li>类型：Boolean</li> <li>默认值：true</li> <li>作用：是否显示底部sheet页按钮</li></ul> <hr> <h3 id="devicepixelratio"><a href="#devicepixelratio" class="header-anchor">#</a> devicePixelRatio</h3> <ul><li>类型：Number</li> <li>默认值：window.devicePixelRatio</li> <li>作用：设备比例，比例越大表格分辨率越高</li></ul> <hr> <h3 id="cellcontextmenu"><a href="#cellcontextmenu" class="header-anchor">#</a> cellContextMenu</h3> <ul><li>类型：Array</li> <li>默认值：[]</li> <li>作用：自定义配置单元格右击菜单</li> <li>格式：<div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">[</span>
+	<span class="token string">&quot;copy&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 复制</span>
+<span class="token string">&quot;paste&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 粘贴</span>
+<span class="token string">&quot;|&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;insert-row&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 插入行</span>
+<span class="token string">&quot;insert-column&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 插入列</span>
+<span class="token string">&quot;delete-row&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 删除选中行</span>
+<span class="token string">&quot;delete-column&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 删除选中列</span>
+<span class="token string">&quot;delete-cell&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 删除单元格</span>
+<span class="token string">&quot;hide-row&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 隐藏选中行和显示选中行</span>
+<span class="token string">&quot;hide-column&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 隐藏选中列和显示选中列</span>
+<span class="token string">&quot;set-row-height&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 设置行高</span>
+<span class="token string">&quot;set-column-width&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 设置列宽</span>
+<span class="token string">&quot;|&quot;</span><span class="token punctuation">,</span>
+<span class="token string">&quot;clear&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 清除内容</span>
+<span class="token string">&quot;sort&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 排序选区</span>
+<span class="token string">&quot;orderAZ&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 升序</span>
+<span class="token string">&quot;orderZA&quot;</span><span class="token punctuation">,</span> <span class="token comment">// 降序</span>
+<span class="token punctuation">]</span>
+</code></pre></div></li></ul> <hr> <h3 id="sheettabcontextmenu"><a href="#sheettabcontextmenu" class="header-anchor">#</a> sheetTabContextMenu</h3> <ul><li>类型：Object</li> <li>作用：自定义配置sheet页右击菜单</li> <li>格式：<div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">[</span>
+	<span class="token string">&quot;delete&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;copy&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;rename&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;color&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;hide&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;|&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;move&quot;</span>
+<span class="token punctuation">]</span>
+
+</code></pre></div></li></ul> <hr> <h3 id="rowheaderwidth"><a href="#rowheaderwidth" class="header-anchor">#</a> rowHeaderWidth</h3> <ul><li>类型：Number</li> <li>默认值：46</li> <li>作用：行标题区域的宽度，如果设置为0，则表示隐藏行标题</li></ul> <hr> <h3 id="columnheaderheight"><a href="#columnheaderheight" class="header-anchor">#</a> columnHeaderHeight</h3> <ul><li>类型：Number</li> <li>默认值：20</li> <li>作用：列标题区域的高度，如果设置为0，则表示隐藏列标题</li></ul> <hr> <h3 id="showformulabar"><a href="#showformulabar" class="header-anchor">#</a> showFormulaBar</h3> <ul><li>类型：Boolean</li> <li>默认值：true</li> <li>作用：是否显示公式栏</li></ul> <hr> <h3 id="defaultfontsize"><a href="#defaultfontsize" class="header-anchor">#</a> defaultFontSize</h3> <ul><li>类型：Number</li> <li>默认值：11</li> <li>作用：初始化默认字体大小</li></ul> <hr></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/ruilisi/fortune-sheet/edit/master/docs/zh/guide/config.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2025/1/10 10:13:10</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/fortune-sheet-docs/zh/guide/" class="prev router-link-active">
+        快速上手
+      </a></span> <span class="next"><a href="/fortune-sheet-docs/zh/guide/sheet.html">
+        工作表配置
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/fortune-sheet-docs/assets/js/app.74366edf.js" defer></script><script src="/fortune-sheet-docs/assets/js/2.173094f5.js" defer></script><script src="/fortune-sheet-docs/assets/js/1.c7831255.js" defer></script><script src="/fortune-sheet-docs/assets/js/36.be05224a.js" defer></script>
+  </body>
+</html>
