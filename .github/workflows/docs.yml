@@ -26,7 +26,6 @@ jobs:
           registry-url: "https://registry.npmjs.org"
           cache: 'pnpm'
 
-      - name: Install deps && Build VuePress site
       - run: cd docs
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
