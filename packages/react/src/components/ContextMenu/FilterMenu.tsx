@@ -439,28 +439,45 @@ const FilterMenu: React.FC = () => {
         ref={containerRef}
         style={{ left: filterContextMenu.x, top: filterContextMenu.y }}
       >
-        {settings.filterContextMenu?.map((name, i) => {
-          if (name === "|") {
+        {settings.filterContextMenu?.map((cellItem, i) => {
+          if (Array.isArray(cellItem)) {
+            return cellItem.map((item) => {
+              return (
+                <Menu
+                  key={item.label}
+                  onClick={() => {
+                    item.onClick();
+                    setContext((draftCtx) => {
+                      draftCtx.contextMenu = {};
+                    });
+                  }}
+                >
+                  {item.label}
+                </Menu>
+              );
+            });
+          }
+          if (cellItem === "|") {
             return <Divider key={`divider-${i}`} />;
           }
-          if (name === "sort-by-asc") {
+          if (cellItem === "sort-by-asc") {
             return (
-              <Menu key={name} onClick={() => sortData(true)}>
+              <Menu key={cellItem} onClick={() => sortData(true)}>
                 {filter.sortByAsc}
               </Menu>
             );
           }
-          if (name === "sort-by-desc") {
+          if (cellItem === "sort-by-desc") {
             return (
-              <Menu key={name} onClick={() => sortData(false)}>
+              <Menu key={cellItem} onClick={() => sortData(false)}>
                 {filter.sortByDesc}
               </Menu>
             );
           }
-          if (name === "filter-by-color") {
+          if (cellItem === "filter-by-color") {
             return (
               <div
-                key={name}
+                key={cellItem}
                 ref={byColorMenuRef}
                 onMouseEnter={() => {
                   if (!containerRef.current || !filterContextMenu) {
@@ -482,9 +499,9 @@ const FilterMenu: React.FC = () => {
               </div>
             );
           }
-          if (name === "filter-by-condition") {
+          if (cellItem === "filter-by-condition") {
             return (
-              <div key="name">
+              <div key="cellItem">
                 <Menu onClick={() => {}}>
                   <div className="filter-caret right" />
                   {filter.filterByCondition}
@@ -533,9 +550,9 @@ const FilterMenu: React.FC = () => {
               </div>
             );
           }
-          if (name === "filter-by-value") {
+          if (cellItem === "filter-by-value") {
             return (
-              <div key={name}>
+              <div key={cellItem}>
                 <Menu onClick={() => {}}>
                   <div className="filter-caret right" />
                   {filter.filterByValues}

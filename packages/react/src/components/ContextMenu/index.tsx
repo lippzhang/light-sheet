@@ -16,6 +16,7 @@ import {
   api,
   isAllowEdit,
   jfrefreshgrid,
+  CustomContentMenuItems,
 } from "@light-sheet/core";
 import _ from "lodash";
 import React, { useContext, useRef, useCallback, useLayoutEffect } from "react";
@@ -36,15 +37,32 @@ const ContextMenu: React.FC = () => {
   const { showAlert } = useAlert();
   const { rightclick, drag, generalDialog, info } = locale(context);
   const getMenuElement = useCallback(
-    (name: string, i: number) => {
+    (cellItem: string | CustomContentMenuItems, i: number) => {
       const selection = context.luckysheet_select_save?.[0];
-      if (name === "|") {
+      if (Array.isArray(cellItem)) {
+        return cellItem.map((item) => {
+          return (
+            <Menu
+              key={item.label}
+              onClick={() => {
+                item.onClick();
+                setContext((draftCtx) => {
+                  draftCtx.contextMenu = {};
+                });
+              }}
+            >
+              {item.label}
+            </Menu>
+          );
+        });
+      }
+      if (cellItem === "|") {
         return <Divider key={`divider-${i}`} />;
       }
-      if (name === "copy") {
+      if (cellItem === "copy") {
         return (
           <Menu
-            key={name}
+            key={cellItem}
             onClick={() => {
               setContext((draftCtx) => {
                 if (draftCtx.luckysheet_select_save?.length! > 1) {
@@ -61,10 +79,10 @@ const ContextMenu: React.FC = () => {
           </Menu>
         );
       }
-      if (name === "paste" && regeneratorRuntime) {
+      if (cellItem === "paste" && regeneratorRuntime) {
         return (
           <Menu
-            key={name}
+            key={cellItem}
             onClick={async () => {
               const clipboardText = await navigator.clipboard.readText();
               setContext((draftCtx) => {
@@ -77,7 +95,7 @@ const ContextMenu: React.FC = () => {
           </Menu>
         );
       }
-      if (name === "insert-column") {
+      if (cellItem === "insert-column") {
         return selection?.row_select
           ? null
           : ["left", "right"].map((dir) => (
@@ -154,7 +172,7 @@ const ContextMenu: React.FC = () => {
               </Menu>
             ));
       }
-      if (name === "insert-row") {
+      if (cellItem === "insert-row") {
         return selection?.column_select
           ? null
           : ["top", "bottom"].map((dir) => (
@@ -224,7 +242,7 @@ const ContextMenu: React.FC = () => {
               </Menu>
             ));
       }
-      if (name === "delete-column") {
+      if (cellItem === "delete-column") {
         return (
           selection?.column_select && (
             <Menu
@@ -277,7 +295,7 @@ const ContextMenu: React.FC = () => {
           )
         );
       }
-      if (name === "delete-row") {
+      if (cellItem === "delete-row") {
         return (
           selection?.row_select && (
             <Menu
@@ -327,7 +345,7 @@ const ContextMenu: React.FC = () => {
           )
         );
       }
-      if (name === "hide-row") {
+      if (cellItem === "hide-row") {
         return (
           selection?.row_select === true &&
           ["hideSelected", "showHide"].map((item) => (
@@ -353,7 +371,7 @@ const ContextMenu: React.FC = () => {
           ))
         );
       }
-      if (name === "hide-column") {
+      if (cellItem === "hide-column") {
         return (
           selection?.column_select === true &&
           ["hideSelected", "showHide"].map((item) => (
@@ -379,7 +397,7 @@ const ContextMenu: React.FC = () => {
           ))
         );
       }
-      if (name === "set-row-height") {
+      if (cellItem === "set-row-height") {
         const rowHeight = selection?.height || context.defaultrowlen;
         const shownRowHeight = context.luckysheet_select_save?.some(
           (section) =>
@@ -440,7 +458,7 @@ const ContextMenu: React.FC = () => {
           </Menu>
         ) : null;
       }
-      if (name === "set-column-width") {
+      if (cellItem === "set-column-width") {
         const colWidth = selection?.width || context.defaultcollen;
         const shownColWidth = context.luckysheet_select_save?.some(
           (section) =>
@@ -501,10 +519,10 @@ const ContextMenu: React.FC = () => {
           </Menu>
         ) : null;
       }
-      if (name === "clear") {
+      if (cellItem === "clear") {
         return (
           <Menu
-            key={name}
+            key={cellItem}
             onClick={() => {
               setContext((draftCtx) => {
                 const allowEdit = isAllowEdit(draftCtx);
@@ -530,10 +548,10 @@ const ContextMenu: React.FC = () => {
           </Menu>
         );
       }
-      if (name === "orderAZ") {
+      if (cellItem === "orderAZ") {
         return (
           <Menu
-            key={name}
+            key={cellItem}
             onClick={() => {
               setContext((draftCtx) => {
                 sortSelection(draftCtx, true);
@@ -545,10 +563,10 @@ const ContextMenu: React.FC = () => {
           </Menu>
         );
       }
-      if (name === "orderZA") {
+      if (cellItem === "orderZA") {
         return (
           <Menu
-            key={name}
+            key={cellItem}
             onClick={() => {
               setContext((draftCtx) => {
                 sortSelection(draftCtx, false);
@@ -560,10 +578,10 @@ const ContextMenu: React.FC = () => {
           </Menu>
         );
       }
-      if (name === "sort") {
+      if (cellItem === "sort") {
         return (
           <Menu
-            key={name}
+            key={cellItem}
             onClick={() => {
               setContext((draftCtx) => {
                 showDialog(<CustomSort />);
@@ -575,10 +593,10 @@ const ContextMenu: React.FC = () => {
           </Menu>
         );
       }
-      if (name === "filter") {
+      if (cellItem === "filter") {
         return (
           <Menu
-            key={name}
+            key={cellItem}
             onClick={() => {
               setContext((draftCtx) => {
                 createFilter(draftCtx);
@@ -590,10 +608,10 @@ const ContextMenu: React.FC = () => {
           </Menu>
         );
       }
-      if (name === "image") {
+      if (cellItem === "image") {
         return (
           <Menu
-            key={name}
+            key={cellItem}
             onClick={() => {
               setContext((draftCtx) => {
                 showImgChooser();
@@ -605,10 +623,10 @@ const ContextMenu: React.FC = () => {
           </Menu>
         );
       }
-      if (name === "link") {
+      if (cellItem === "link") {
         return (
           <Menu
-            key={name}
+            key={cellItem}
             onClick={() => {
               setContext((draftCtx) => {
                 handleLink(draftCtx);
@@ -676,7 +694,6 @@ const ContextMenu: React.FC = () => {
       });
     }
   }, [contextMenu.x, contextMenu.y, refs.workbookContainer, setContext]);
-
   if (_.isEmpty(context.contextMenu)) return null;
 
   return (

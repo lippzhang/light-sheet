@@ -122,6 +122,14 @@ export type Hooks = {
   afterUpdateSheetName?: (id: string, oldName: string, newName: string) => void;
 };
 
+export type CustomContentMenuItem = {
+  type: "cell" | "header" | "sheetTab" | "filter";
+  label: string;
+  onClick: () => void;
+  // onClick: (cell: Cell) => void;
+};
+export type CustomContentMenuItems = CustomContentMenuItem[];
+
 export type Settings = {
   column?: number;
   row?: number;
@@ -141,10 +149,10 @@ export type Settings = {
   defaultRowHeight?: number;
   defaultFontSize?: number;
   toolbarItems?: string[];
-  cellContextMenu?: string[];
-  headerContextMenu?: string[];
-  sheetTabContextMenu?: string[];
-  filterContextMenu?: string[];
+  cellContextMenu?: (string | CustomContentMenuItems)[];
+  headerContextMenu?: (string | CustomContentMenuItems)[];
+  sheetTabContextMenu?: (string | CustomContentMenuItems)[];
+  filterContextMenu?: (string | CustomContentMenuItems)[];
   generateSheetId?: () => string;
   hooks?: Hooks;
   customToolbarItems?: {

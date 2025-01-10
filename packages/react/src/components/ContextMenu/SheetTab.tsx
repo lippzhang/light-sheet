@@ -107,11 +107,28 @@ const SheetTabContextMenu: React.FC = () => {
       style={{ left: position.x, top: position.y, overflow: "visible" }}
       ref={containerRef}
     >
-      {settings.sheetTabContextMenu?.map((name, i) => {
-        if (name === "delete") {
+      {settings.sheetTabContextMenu?.map((cellItem, i) => {
+        if (Array.isArray(cellItem)) {
+          return cellItem.map((item) => {
+            return (
+              <Menu
+                key={item.label}
+                onClick={() => {
+                  item.onClick();
+                  setContext((draftCtx) => {
+                    draftCtx.contextMenu = {};
+                  });
+                }}
+              >
+                {item.label}
+              </Menu>
+            );
+          });
+        }
+        if (cellItem === "delete") {
           return (
             <Menu
-              key={name}
+              key={cellItem}
               onClick={() => {
                 const shownSheets = context.luckysheetfile.filter(
                   (singleSheet) =>
@@ -144,10 +161,10 @@ const SheetTabContextMenu: React.FC = () => {
             </Menu>
           );
         }
-        if (name === "rename") {
+        if (cellItem === "rename") {
           return (
             <Menu
-              key={name}
+              key={cellItem}
               onClick={() => {
                 onRename?.();
                 close();
@@ -157,9 +174,9 @@ const SheetTabContextMenu: React.FC = () => {
             </Menu>
           );
         }
-        if (name === "move") {
+        if (cellItem === "move") {
           return (
-            <React.Fragment key={name}>
+            <React.Fragment key={cellItem}>
               <Menu
                 onClick={() => {
                   moveSheet(-1.5);
@@ -179,10 +196,10 @@ const SheetTabContextMenu: React.FC = () => {
             </React.Fragment>
           );
         }
-        if (name === "hide") {
+        if (cellItem === "hide") {
           return (
             <Menu
-              key={name}
+              key={cellItem}
               onClick={() => {
                 hideSheet();
                 close();
@@ -192,10 +209,10 @@ const SheetTabContextMenu: React.FC = () => {
             </Menu>
           );
         }
-        if (name === "copy") {
+        if (cellItem === "copy") {
           return (
             <Menu
-              key={name}
+              key={cellItem}
               onClick={() => {
                 copySheet();
                 close();
@@ -205,10 +222,10 @@ const SheetTabContextMenu: React.FC = () => {
             </Menu>
           );
         }
-        if (name === "color") {
+        if (cellItem === "color") {
           return (
             <Menu
-              key={name}
+              key={cellItem}
               onMouseEnter={() => {
                 setIsShowChangeColor(true);
               }}
@@ -228,10 +245,10 @@ const SheetTabContextMenu: React.FC = () => {
             </Menu>
           );
         }
-        if (name === "focus") {
+        if (cellItem === "focus") {
           return (
             <Menu
-              key={name}
+              key={cellItem}
               onClick={() => {
                 focusSheet();
                 close();
@@ -241,7 +258,7 @@ const SheetTabContextMenu: React.FC = () => {
             </Menu>
           );
         }
-        if (name === "|") {
+        if (cellItem === "|") {
           return <Divider key={`divide-${i}`} />;
         }
         return null;
